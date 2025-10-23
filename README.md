@@ -44,3 +44,4 @@ Observações
 Projeto desenvolvido para fins de estudo e portfólio.
 
 Recomendado rodar backend e frontend separadamente ou usar serviços como Render (backend) + Vercel (frontend) para deploy online.
+"# Cadastro-Usu-rios" 
