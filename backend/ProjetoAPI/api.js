@@ -1,10 +1,14 @@
-// src/services/api.js
+import api from "./services/api";
 
-import axios from "axios";
-
-// Cria instância do Axios apontando para o backend local
-const api = axios.create({
-  baseURL: "https://cadastro-de-usuarios-4cpr.onrender.com/usuarios", // URL base da sua API
-});
-
-export default api;
+const cadastrarUsuario = async () => {
+  try {
+    const response = await api.post("/usuarios", {
+      name: "Bruno",
+      email: "bruno@gmail.com",
+      age: 29,
+    });
+    console.log("Usuário cadastrado:", response.data);
+  } catch (error) {
+    console.error("Erro ao cadastrar:", error);
+  }
+};
