@@ -35,7 +35,18 @@ function Home() {
 
   // Executa a busca inicial de usuários ao carregar o componente
   useEffect(() => {
-    getUsers();
+    async function fetchData() {
+      try {
+        // Faz uma chamada inicial só pra acordar o servidor Render
+        await api.get("/");
+        // Depois busca os usuários
+        await getUsers();
+      } catch (err) {
+        console.error("Erro ao buscar usuários:", err);
+      }
+    }
+
+    fetchData();
   }, []);
 
   return (
