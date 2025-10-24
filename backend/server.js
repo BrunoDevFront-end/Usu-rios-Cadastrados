@@ -29,7 +29,7 @@ app.post("/usuarios", async (req, res) => {
 // Remove um usuário pelo ID
 app.delete("/usuarios/:id", async (req, res) => {
   await prisma.user.delete({
-    where: { id: req.params.id },
+    where: { id: Number(req.params.id) },
   });
   res.status(200).json({ message: "Usuário deletado" });
 });
@@ -37,7 +37,7 @@ app.delete("/usuarios/:id", async (req, res) => {
 // Atualiza dados de um usuário
 app.put("/usuarios/:id", async (req, res) => {
   await prisma.user.update({
-    where: { id: req.params.id },
+    where: { id: Number(req.params.id) },
     data: {
       email: req.body.email,
       name: req.body.name,
